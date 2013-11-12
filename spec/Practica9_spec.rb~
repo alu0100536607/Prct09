@@ -1,4 +1,4 @@
-require 'Practica9.rb'
+require 'matriz.rb'
 matriz = Matriz.new(2,2)
 matriz2 = Matriz.new(2,2)
 matriz3 = Matriz.new(2, 2)
