@@ -6,10 +6,10 @@ require 'Practica9/version'
 Gem::Specification.new do |spec|
   spec.name          = "Practica9"
   spec.version       = Practica9::VERSION
-  spec.authors       = ["Adrian Mesa Jaubert & Cristo Daniel Cabello Delgado"]
-  spec.email         = ["alu0100614220@ull.edu.es & alu0100536607@ull.edu.es"]
-  spec.description   = %q{Implementacion de clases para matrices densas y dispersas}
-  spec.summary       = %q{Implementacion de clases para matrices densas y dispersas}
+  spec.authors       = ["TODO: Write your name"]
+  spec.email         = ["TODO: Write your email address"]
+  spec.description   = %q{TODO: Write a gem description}
+  spec.summary       = %q{TODO: Write a gem summary}
   spec.homepage      = ""
   spec.license       = "MIT"
 
