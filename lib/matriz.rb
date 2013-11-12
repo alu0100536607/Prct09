@@ -1,9 +1,5 @@
-require "Practica9/version"
 require 'fraccion.rb'
-
-module Practica9
-
-    class Matriz
+class Matriz
   
     def initialize (x, y)
         throw "Dimensiones invalidas" if (x * y) == 0 
@@ -11,7 +7,6 @@ module Practica9
         @ysize= y 
         @values= Array.new(x * y)
     end   
-    
     def setValue(x, y, v)
         @values[y * @ysize + x]= v
     end
@@ -54,7 +49,7 @@ module Practica9
 	    end	
 	  end
     aux
-    end
+end
 
     def -(b)
 	aux = 1
@@ -70,37 +65,36 @@ module Practica9
 	    end	
 	  end
     aux
-    end
+  end
 
-    def *(b)
-      aux2 = 0
-      d = Racional.new(20.0, 12.0)
-      sum = Matriz.new(gety, b.getx)
-      v = Racional.new(0, 0)
-      c = Matriz.new(gety, b.getx)
-      for i in (0...c.getx) do
-	for j in (0...c.gety) do
-	  v.setden(0)
-	  v.setnum(0)
-	  sum.setValue(i, j, v)
-	  for k in (0...@ysize) do
-	    if k!=0 
-	      aux = (getValue(i, k) * b.getValue(k, j)) + sum.getValue(i, j)
-	      sum.setValue(i, j, aux)
-	    end
-	    if k == 0 
-	      aux = (getValue(i, k) * b.getValue(k, j))
-	      sum.setValue(i, j, aux)
-	    end
-	  c.setValue(i, j, sum.getValue(i, j))
-	  if c.getValue(i, j).decimal == d.decimal
-	    aux2 = 1
+  def *(b)
+    aux2 = 0
+    d = Racional.new(20.0, 12.0)
+    sum = Matriz.new(gety, b.getx)
+    v = Racional.new(0, 0)
+    c = Matriz.new(gety, b.getx)
+    for i in (0...c.getx) do
+      for j in (0...c.gety) do
+	v.setden(0)
+	v.setnum(0)
+	sum.setValue(i, j, v)
+	for k in (0...@ysize) do
+	  if k!=0 
+	    aux = (getValue(i, k) * b.getValue(k, j)) + sum.getValue(i, j)
+	    sum.setValue(i, j, aux)
 	  end
-      end	
-  end
-  end
-  aux2
-  end
-
+	  if k == 0 
+	     aux = (getValue(i, k) * b.getValue(k, j))
+	     sum.setValue(i, j, aux)
+	  end
+	c.setValue(i, j, sum.getValue(i, j))
+	if c.getValue(i, j).decimal == d.decimal
+	  aux2 = 1
+	end
+    end	
+ end
 end
+aux2
+end
+
 end
