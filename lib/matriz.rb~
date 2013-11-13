@@ -1,5 +1,3 @@
-require 'fraccion.rb'
-
     class Matriz
   
     def initialize (x, y)
