@@ -12,13 +12,6 @@ class Matrizdensa < Matriz
 	end	
     end   
     
-    def setValue(x, y, v)
-        @values[y * @ysize + x]= v
-    end
-    
-    def getValue(x, y)
-        @values[y * @ysize + x]
-    end
     
     def getx
       @xsize
@@ -38,41 +31,21 @@ class Matrizdensa < Matriz
         end
     end
     
-     
+   
     
-    def +(b)
-	aux = 1
-	d = Racional.new(7.0, 6.0)
-	c = Matriz.new(@xsize, @ysize)
-	  for i in (0...@xsize) do
-	    for j in (0...@ysize) do
-	      v = getValue(i, j) + b.getValue(i, j)
-	      c.setValue(i, j, v)
-	      if c.getValue(i, j).decimal != d.decimal
-		aux = 0
-	      end
-	    end	
-	  end
-    aux
-    end
+  def [](i, j)
+  
+    @values[j * @ysize + i]
+    
+  end
+  
+  def []=(i, j, v)
+  
+    @values[j * @ysize + i] = v
+    
+  end
 
-    def -(b)
-	aux = 1
-	d = Racional.new(-1.0, 6.0)
-	c = Matriz.new(gety, b.getx)
-	  for i in (0...@xsize) do
-	    for j in (0...@ysize) do
-	      v = getValue(i, j) - b.getValue(i, j)
-	      c.setValue(i, j, v)
-	       if c.getValue(i, j).decimal != d.decimal
-		aux = 0
-	      end
-	    end	
-	  end
-    aux
-    end
-
-    def *(b)
+   def *(b)
       aux2 = 0
       d = Racional.new(20.0, 12.0)
       sum = Matriz.new(gety, b.getx)
@@ -100,6 +73,7 @@ class Matrizdensa < Matriz
   end
   end
   aux2
+ 
   end
 
  end

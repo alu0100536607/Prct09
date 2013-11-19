@@ -1,8 +1,8 @@
 require "Practica9/version"
 require 'fraccion.rb'
 require 'matriz.rb'
-require 'matriz_densa.rb'
-require 'matriz_dispersa.rb'
+require 'matrizdensa.rb'
+require 'matrizdispersa.rb'
 
 module Practica9
 

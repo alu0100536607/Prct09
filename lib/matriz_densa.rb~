@@ -1,3 +1,5 @@
+
+
 class Matrizdensa < Matriz
   
     def initialize (x, y, v)
