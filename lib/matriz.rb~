@@ -12,18 +12,20 @@ class Matriz
 	  zero = 0
 	  for i in (0...x) do
 	    	for j in (0...y) do
-	      		if v[j * y + i] == 0
-				zero = zero +1
-	      		end
-	    	end	
-	end
+		  if (object.is_a?(Racional)==false)
+			  if (v[j * y + i] == 0)
+				  zero = zero +1
+			  end
+			end
+		end
+	  end
 	if ((zero * 100)/(x * y) >= 60)
 		Matrizdispersa.new((x*y)-zero, x, y, v)
 	else
 		Matrizdensa.new(x, y, v)
 	end
-   end
-   
+    end
+
    def getf
    
      @xsize
@@ -107,4 +109,39 @@ class Matriz
       
     end
 end
+
+  def max
+    
+    aux = 0
+    for i in (0...@xsize) do
+	for j in (0...@ysize) do
+	  if (self[i, j] > aux)
+	      aux = self[i, j]
+	  end
+	end
+      end
+    aux
+  end
+
+  def min
+    
+    aux = 100
+    for i in (0...@xsize) do
+	for j in (0...@ysize) do
+	  if (self[i, j] < aux)
+	      aux = self[i, j]
+	  end
+	end
+      end
+    aux
+  end
+
+
+
+
+
+
+
+
+
 end

@@ -46,7 +46,7 @@ class Matrizdispersa < Matriz
 	   @values.delete_at(i)
 	   @vfilas.delete_at(i)
 	   @vcolumnas.delete_at(i)	  
-	else
+	else (v != 0)
 	   @values << (v)
 	   @vfilas << (f)
 	   @vcolumnas << (c)

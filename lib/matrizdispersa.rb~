@@ -30,7 +30,7 @@ class Matrizdispersa < Matriz
     def [](f, c)
       no_nulo = @values.size
       for i in (0...no_nulo) do
-	  if ((@vfilas[i] == f) && (@vcolumnas[i] == x))
+	  if ((@vfilas[i] == f) && (@vcolumnas[i] == c))
 	     return @values[i]
 	  end
 	end
