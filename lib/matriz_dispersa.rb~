@@ -1,0 +1,47 @@
+class Matrizdispersa < Matriz
+  
+    def initialize (size, x, y, v)
+        throw "Dimensiones invalidas" if (x) == 0 
+        @size = size
+	@vfilas= Array.new(size)
+        @vcolumnas= Array.new(size) 
+        @values= Array.new(size)
+	aux = 0
+	for i in (0...@xsize) do
+	  for j in (0...@ysize) do
+	      if (v[j * @ysize + i] != 0) 
+	      	@values[aux] = v[j * @ysize + i]
+		@vfilas[aux] = i
+		@vcolumnas[aux] = j
+		aux = aux + 1
+	      end
+	  end	
+	end
+    end   
+    
+    def setValue(indice, x, y, v)
+        @v[indice]= v
+	@i[indice]= x
+	@j[indice]= y
+    end
+    
+    def getValue(x, y)
+    	for i in (0...@size) do
+	  if ((@vfilas[i] == x) && (@vcolumnas[i] == y)) 
+	    @values[i]
+	  else
+	    0
+	  end
+	end
+    end
+end
+    
+    def getsize
+      @size
+    end
+
+
+   
+    
+
+end
