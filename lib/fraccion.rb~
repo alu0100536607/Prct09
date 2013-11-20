@@ -48,11 +48,9 @@ class Racional
   end
 
   def ==(object)
-    aux = 0
-    if (object.decimal == self.decimal) then
-      aux = 1
-    end
-    aux
+  
+    ((object.getnum == @num) && (object.getden == @den))
+
   end
   
   def +(object)

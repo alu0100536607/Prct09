@@ -6,6 +6,8 @@ before (:each) do
   @f1 = Racional.new(1.0,2.0)
   @f2 = Racional.new(2.0,3.0)
   @f3 = Racional.new(5.0,4.0)
+  @f4 = Racional.new(3.0,2.0)
+  @f5 = Racional.new(7.0,2.0)
 #Densas
   @m11 = Matriz.constructor(3, 3, [1,1,1,1,1,1,1,1,1])
   @m12 = Matriz.constructor(3, 3, [2,2,2,2,2,2,2,2,2])
@@ -34,6 +36,11 @@ before (:each) do
   @m51 = Matriz.constructor(3, 3, [@f1,@f1,@f1,@f1,@f1,@f1,@f1,@f1,@f1])
   @m52 = Matriz.constructor(3, 3, [@f2,@f2,@f2,@f2,@f2,@f2,@f2,@f2,@f2])
   @m53 = Matriz.constructor(3, 3, [@f3,@f3,@f3,@f3,@f3,@f3,@f3,@f3,@f3])
+  
+  #numero + fraccion
+  @m61 = Matriz.constructor(2, 2, [3,4,5,6])
+  @m62 = Matriz.constructor(2, 2, [@f1,0,0,0])
+  @m63 = Matriz.constructor(2, 2, [@f5,4,5,6])
 
 end  
 #Operaciones Densa con Densa
@@ -105,5 +112,9 @@ end
     #Operando con fracciones
     it "Operando con fracciones la matriz a + la matriz b debe ser c" do
       (@m51+@m52).should == @m53
+  end
+  
+  it "La suma de un numero y una fraccion deberia ser : " do
+    (@m61+@m62).should == @m63
   end
 end

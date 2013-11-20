@@ -6,10 +6,16 @@ class Matrizdispersa < Matriz
         @vcolumnas= Array.new 
         @values= Array.new
 	for i in (0...x*y) do
+	  if(v[i].is_a? Numeric)
 	  if (v[i] != 0)
 	    @values << (v[i])
 	    @vfilas << (i/y)
 	    @vcolumnas << (i%x)
+	  elsif(v[i].is_a?(Racional)==true)
+	    @values << (v[i])
+	    @vfilas << (i/y)
+	    @vcolumnas << (i%x)
+	  end
 	  end
 	end 
     end
@@ -46,7 +52,7 @@ class Matrizdispersa < Matriz
 	   @values.delete_at(i)
 	   @vfilas.delete_at(i)
 	   @vcolumnas.delete_at(i)	  
-	else
+	else (v != 0)
 	   @values << (v)
 	   @vfilas << (f)
 	   @vcolumnas << (c)

@@ -6,24 +6,21 @@ class Matrizdispersa < Matriz
         @vcolumnas= Array.new 
         @values= Array.new
 	for i in (0...x*y) do
+	  if(v[i].is_a? Numeric)
 	  if (v[i] != 0)
 	    @values << (v[i])
 	    @vfilas << (i/y)
 	    @vcolumnas << (i%x)
+	  elsif(v[i].is_a?(Racional)==true)
+	    @values << (v[i])
+	    @vfilas << (i/y)
+	    @vcolumnas << (i%x)
+	  end
 	  end
 	end 
     end
     
     
-    def getValue(x, y)
-	aux = 0
-    	for i in (0...@values.size) do
-	  if ((@vfilas[i] == x) && (@vcolumnas[i] == y))
-	    return @values[i]
-	  end
-	end
-	aux
-    end
     
 
 

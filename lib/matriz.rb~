@@ -12,7 +12,7 @@ class Matriz
 	  zero = 0
 	  for i in (0...x) do
 	    	for j in (0...y) do
-		  if (object.is_a?(Racional)==false)
+		  if (v[j * y + i].is_a?(Racional)==false)
 			  if (v[j * y + i] == 0)
 				  zero = zero +1
 			  end
@@ -42,48 +42,140 @@ class Matriz
   def +(object)
   
     if ((@xsize == object.getf) && (@ysize == object.getc))  
+      
       v = Array.new
+      
       for i in (0...@xsize) do
+	
 	for j in (0...@ysize) do
-	  v << (self[i ,j] + object[i, j])
+	  
+	 if((object[i,j].is_a? Numeric) && (self[i,j].is_a?(Racional)==true))
+	   
+	   aux = Racional.new(object[i,j],1)
+	   
+	   v << (self[i ,j] + aux)
+	   
+	 elsif((self[i,j].is_a? Numeric) && (object[i,j].is_a?(Racional)==true))
+	   
+	   aux = Racional.new(self[i,j],1)
+	   
+	   v << (aux + object[i, j])
+	   
+	 else
+	   
+	   v << (self[i ,j] + object[i, j])
+	   
+	 end
+	 
 	end
+	
       end
+      
       Matriz.constructor(@xsize, @ysize, v)
+      
     end
   
   end
-    
-    def -(object)
+  
+  
+  
+   def -(object)
   
     if ((@xsize == object.getf) && (@ysize == object.getc))  
+      
       v = Array.new
+      
       for i in (0...@xsize) do
+	
 	for j in (0...@ysize) do
-	  v << (self[i ,j] - object[i, j])
+	  
+	 if((object[i,j].is_a? Numeric) && (self[i,j].is_a?(Racional)==true))
+	   
+	   aux = Racional.new(object[i,j],1)
+	   
+	   v << (self[i ,j] - aux)
+	   
+	 elsif((self[i,j].is_a? Numeric) && (object[i,j].is_a?(Racional)==true))
+	   
+	   aux = Racional.new(self[i,j],1)
+	   
+	   v << (aux - object[i, j])
+	   
+	 else
+	   
+	   v << (self[i ,j] - object[i, j])
+	   
+	 end
+	 
 	end
+	
       end
+      
       Matriz.constructor(@xsize, @ysize, v)
+      
     end
   
   end
-    
+  
   
   def ==(object)
    
     if ((@xsize == object.getf) && (@ysize == object.getc))  
       for i in (0...@xsize) do
+	
 	for j in (0...@ysize) do
+	  
+	 if((object[i,j].is_a? Numeric) && (self[i,j].is_a?(Racional)==true))
+	   
+	   aux = Racional.new(object[i,j],1)
+	   
+	   if (self[i ,j] == aux)
+	     
+	     aux = true
+	     
+	   else
+	     
+	     aux = false
+	     
+	   end
+	   
+	 elsif((self[i,j].is_a? Numeric) && (object[i,j].is_a?(Racional)==true))	   
+	   
+	   aux = Racional.new(self[i,j],1)
+	   
+	   if (object[i ,j] == aux)
+	     
+	     aux = true
+	     
+	   else
+	     
+	     aux = false
+	     
+	   end
+	      else
+		
 	  if (self[i, j] == object[i, j])
+	    
 	    aux = true
+	    
 	  else
-	    return aux = false
+	    
+	    aux = false
+	    
 	  end
+	  
 	end
+	
       end
+      
       aux
+      
     end
-  
+    
   end
+  
+ end
+ 
    def *(object)
      if(object.is_a? Numeric)
       v = Array.new
