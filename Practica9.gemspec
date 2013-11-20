@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["alu0100614220@ull.edu.es & alu0100536607@ull.edu.es"]
   spec.description   = %q{Implementacion de clases para matrices densas y dispersas}
   spec.summary       = %q{Implementacion de clases para matrices densas y dispersas}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/alu0100536607/Prct09/"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
